@@ -1,0 +1,110 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "RegisterUserAPI",
+    "version" : "2024-08-05T12:44:42Z"
+  },
+  "servers" : [ {
+    "url" : "https://1d51g1pe1g.execute-api.ap-south-1.amazonaws.com/{basePath}",
+    "variables" : {
+      "basePath" : {
+        "default" : "jobConnnect"
+      }
+    }
+  } ],
+  "paths" : {
+    "/registerUser" : {
+      "post" : {
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/registerinput"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "200 response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/registeroutput"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "registerinput" : {
+        "title" : "registerinput",
+        "type" : "object",
+        "properties" : {
+          "Mobile_Number" : {
+            "type" : "string"
+          },
+          "Login_Type" : {
+            "type" : "string"
+          },
+          "Password" : {
+            "type" : "string"
+          },
+          "Name" : {
+            "type" : "string"
+          },
+          "Gender" : {
+            "type" : "string"
+          },
+          "Age" : {
+            "type" : "string"
+          },
+          "Profession" : {
+            "type" : "string"
+          },
+          "Experience_Years" : {
+            "type" : "string"
+          },
+          "Experience_Months" : {
+            "type" : "string"
+          },
+          "Average_Rating" : {
+            "type" : "string"
+          },
+          "Address_Street" : {
+            "type" : "string"
+          },
+          "City" : {
+            "type" : "string"
+          },
+          "State" : {
+            "type" : "string"
+          },
+          "Pincode" : {
+            "type" : "string"
+          },
+          "Email" : {
+            "type" : "string"
+          }
+        }
+      },
+      "registeroutput" : {
+        "title" : "registeroutput",
+        "type" : "object",
+        "properties" : {
+          "Mobile_Number" : {
+            "type" : "string"
+          },
+          "register_Status" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  }
+}

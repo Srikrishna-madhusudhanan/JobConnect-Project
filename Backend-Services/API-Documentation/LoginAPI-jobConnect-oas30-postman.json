@@ -1,0 +1,81 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "LoginAPI",
+    "description" : "API to verify User Login Id and Password.",
+    "contact" : {
+      "name" : "JobConnect",
+      "email" : "jobConnectTeam@gmail.com"
+    },
+    "version" : "2024-08-05T12:39:58Z"
+  },
+  "servers" : [ {
+    "url" : "https://dk7vxhqz9b.execute-api.ap-south-1.amazonaws.com/{basePath}",
+    "variables" : {
+      "basePath" : {
+        "default" : "jobConnect"
+      }
+    }
+  } ],
+  "paths" : {
+    "/Login" : {
+      "post" : {
+        "description" : "Send the Mobile number and Password in JSON body of API POST request to verify with DB details. Success / Failure status will be returned",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/logininput"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "200 response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/loginoutput"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "loginoutput" : {
+        "title" : "loginoutput",
+        "type" : "object",
+        "properties" : {
+          "Mobile_Number" : {
+            "type" : "string"
+          },
+          "login_Status" : {
+            "type" : "string"
+          }
+        },
+        "description" : " 'success' if password matches; 'failure' if password didnt match 'user not found' if Mobile_Number is not in DB"
+      },
+      "logininput" : {
+        "title" : "logininput",
+        "type" : "object",
+        "properties" : {
+          "Mobile_Number" : {
+            "type" : "string"
+          },
+          "Login_Type" : {
+            "type" : "string"
+          },
+          "Password" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  }
+}
